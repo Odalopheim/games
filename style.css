@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+svg {
+  border: 2px solid #333;
+  background-color: #fff;
+}
+
+.arrow {
+  transform-origin: 100px 250px;
+}
+
+.scoreboard {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.controls {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+
