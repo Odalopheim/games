@@ -40,4 +40,14 @@ button:hover {
   background-color: #555;
 }
 
-
+.controls {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.game-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+  align-items: center;
+}
