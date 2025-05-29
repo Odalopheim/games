@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Love-tree</title>
+    <link rel="stylesheet" href="treeOfLove.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex@0.6.5/jscex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex-parser@0.6.5/jscex-parser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex-jit@0.6.6/jscex-jit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex-builderbase@0.6.5/jscex-builderbase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex-async@0.6.5/jscex-async.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscex-async-powerpack@0.6.5/jscex-async-powerpack.min.js"></script>
+    <script>
+        var $win = $(window);
+        var clientWidth = $win.width();
+        var clientHeight = $win.height();
+
+        $(window).resize(function () {
+            var newWidth = $win.width();
+            var newHeight = $win.height();
+            if (newWidth != clientWidth && newHeight != clientHeight) {
+                location.replace(location);
+            }
+        });
+
+        (function ($) {
+            $.fn.typewriter = function () {
+                this.each(function () {
+                    var $ele = $(this), str = $ele.html(), progress = 0;
+                    $ele.html('');
+                    var timer = setInterval(function () {
+                        var current = str.substr(progress, 1);
+                        if (current == '<') {
+                            progress = str.indexOf('>', progress) + 1;
+                        } else {
+                            progress++;
+                        }
+                        $ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
+                        if (progress >= str.length) {
+                            clearInterval(timer);
+                        }
+                    }, 75);
+                });
+                return this;
+            };
+        })(jQuery);
+
+        function timeElapse(date) {
+            var current = Date();
+            var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+            var days = Math.floor(seconds / (3600 * 24));
+            seconds = seconds % (3600 * 24);
+            var hours = Math.floor(seconds / 3600);
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            seconds = seconds % 3600;
+            var minutes = Math.floor(seconds / 60);
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            seconds = seconds % 60;
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            var result = "第 <span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 小时 <span class=\"digit\">" + minutes + "</span> 分钟 <span class=\"digit\">" + seconds + "</span> 秒";
+            $("#clock").html(result);
+        }
+    </script>
+
+    <script src="treeOfLoveBlader.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="error">ups(<a href="https://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
+                href="http://firefox.com.cn/download/">Firefox</a>)halla</div>
+        <div id="wrap">
+            <div id="text">
+                <div id="code">
+                    <span class="say">Gratulerer, Simen</span><br>
+                    <span class="say">Gratulerer med dagen, min favoritt,</span><br>
+                    <span class="say">du gjør selv de gråeste dager litt fritt.</span><br>
+                    <span class="say">Med deg er livet litt mer i balanse,</span><br>
+                    <span class="say">og hverdagen føles som reneste sjanse.</span><br>
+                    <br>
+                    <span class="say">Du får meg til å smile uten grunn,</span><br>
+                    <span class="say">og være meg selv – hele veien rundt.</span><br>
+                    <span class="say">Det er trygt og fint å stå ved din side,</span><br>
+                    <span class="say">som to som bare... passer i tide.</span><br>
+                    <br>
+                    <span class="say">I dag er det du som skal stå i sentrum,</span><br>
+                    <span class="say">med kake, gaver og full bursdagsstemning.</span><br>
+                    <span class="say">Men mest av alt vil jeg bare si:</span><br>
+                    <span class="say">jeg er skikkelig glad for at du valgte vi.</span><br>
+                    <br>
+                    <span class="say"><span class="space"></span> -- Yours, Prince.</span>
+                </div>
+            </div>
+            <div id="clock-box">
+            Me har vært sammen i:
+            <div id="clock"></div>
+            </div>
+            <canvas id="canvas" width="1100" height="680"></canvas>
+        </div>
+    </div>
+    <script src="treeOfLoveBody.js"></script>
+
+
+
+
+</body>
+
+</html>
